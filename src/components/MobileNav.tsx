@@ -60,7 +60,13 @@ export default function MobileNav() {
         className={`fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg z-50 transform transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
         style={{ willChange: 'transform' }}
       >
-        <div className="flex flex-col h-full p-6">
+        <div className="flex flex-col h-full p-6 relative">
+          <button
+            className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded-lg shadow transition mb-6"
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </button>
           <button
             className="self-end mb-6 text-gray-400 hover:text-white"
             onClick={() => setMenuOpen(false)}
@@ -103,14 +109,6 @@ export default function MobileNav() {
           <Link href="/dashboard/online/payments" className="nav-link mb-2" onClick={() => setMenuOpen(false)}>
             Online Payments
           </Link>
-          <div className="mt-auto pt-6">
-            <button
-              className="btn-secondary w-full"
-              onClick={handleSignOut}
-            >
-              Sign Out
-            </button>
-          </div>
         </div>
       </div>
       {/* Overlay when menu is open */}

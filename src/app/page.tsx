@@ -70,7 +70,7 @@ export default function Home() {
       {/* Login Modal */}
       {showLogin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70">
-          <div className="relative w-full max-w-md mx-auto animate-fade-in">
+          <div className="relative flex flex-col items-center justify-center w-full max-w-xs h-[370px] mx-auto animate-fade-in">
             <button
               className="absolute top-2 right-2 text-gray-400 hover:text-white text-2xl z-10"
               onClick={() => setShowLogin(false)}
@@ -78,7 +78,7 @@ export default function Home() {
             >
               &times;
             </button>
-            <div className="rounded-lg bg-gray-900 shadow-lg p-6">
+            <div className="rounded-lg bg-gray-900 shadow-lg p-6 w-full h-full flex flex-col justify-center">
               <LoginPage />
             </div>
           </div>
@@ -87,6 +87,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="absolute bottom-4 w-full text-center text-xs text-gray-500 z-10">
         &copy; {new Date().getFullYear()} 아산타 아수루무니 | Asantha Asurumuni | EPS-TOPIK Korean School
+        <div className="mt-1 text-gray-400">Software by : Dushan Cruez - TechMelvin - 0705565150</div>
       </footer>
       <style jsx global>{`
         @keyframes gradient-move {

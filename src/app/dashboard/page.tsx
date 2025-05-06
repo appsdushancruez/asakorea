@@ -81,113 +81,97 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-2xl font-bold text-gray-900">Welcome to Korean Class Management</h2>
-          <p className="mt-4 text-gray-500">
-            Select a section from the sidebar to manage your classes.
-          </p>
-
-          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-            <div className="group relative">
-              <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64 flex flex-col items-center justify-center">
-                <GiTempleGate className="text-blue-400 mb-4" size={56} />
-                <div className="flex flex-col items-center justify-center flex-1">
-                  <h3 className="text-lg font-medium text-indigo-900">Physical Classes</h3>
-                  <p className="mt-2 text-sm text-indigo-500">
-                    Manage your in-person Korean language classes
-                  </p>
-                  <button
-                    onClick={() => router.push('/dashboard/physical/students')}
-                    className="mt-4 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  >
-                    View Physical Classes
-                  </button>
-                </div>
-              </div>
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-blue-50 to-green-50 flex flex-col items-center justify-center p-8">
+      <div className="max-w-5xl w-full mx-auto">
+        <h1 className="text-3xl font-bold text-pink-700 mb-2 text-center drop-shadow">Welcome to Korean Class Management</h1>
+        <p className="text-lg text-blue-600 mb-8 text-center">Select a section from the sidebar to manage your classes.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Physical Classes Card */}
+          <div className="rounded-2xl shadow-lg bg-gradient-to-br from-blue-100 via-blue-50 to-pink-50 p-8 flex flex-col items-center border border-blue-200 hover:shadow-2xl transition">
+            <div className="mb-4">
+              <GiTempleGate className="text-blue-400" size={48} />
             </div>
-
-            <div className="group relative">
-              <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64 flex flex-col items-center justify-center">
-                <MdOutlineComputer className="text-green-400 mb-4" size={56} />
-                <div className="flex flex-col items-center justify-center flex-1">
-                  <h3 className="text-lg font-medium text-green-900">Online Classes</h3>
-                  <p className="mt-2 text-sm text-green-500">
-                    Manage your online Korean language classes
-                  </p>
-                  <button
-                    onClick={() => router.push('/dashboard/online/students')}
-                    className="mt-4 rounded-md bg-green-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600"
-                  >
-                    View Online Classes
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative">
-              <div className="relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64 flex flex-col items-center justify-center">
-                <MdPhotoCamera className="text-red-400 mb-4" size={56} />
-                <div className="flex flex-col items-center justify-center flex-1">
-                  <h3 className="text-lg font-medium text-red-900">Quick Capture Student Photo</h3>
-                  <p className="mt-2 text-sm text-red-500">
-                    Capture and register a new student on the spot
-                  </p>
-                  <button
-                    onClick={handleCaptureClick}
-                    className="mt-4 rounded-md bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
-                  >
-                    Capture Student Photo
-                  </button>
-                </div>
-              </div>
-            </div>
+            <h2 className="text-xl font-semibold text-blue-700 mb-2">Physical Classes</h2>
+            <p className="text-blue-500 mb-4 text-center">Manage your in-person Korean language classes</p>
+            <button
+              onClick={() => router.push('/dashboard/physical/students')}
+              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 rounded-lg shadow transition"
+            >
+              View Physical Classes
+            </button>
           </div>
-
-          {/* Modal for Image Capture */}
-          <Modal isOpen={showCaptureModal} onClose={() => setShowCaptureModal(false)} title="Capture or Upload Student Photo">
-            <div className="p-4">
-              <ImageCapture
-                onImageCaptured={handleImageCaptured}
-                onError={() => setShowCaptureModal(false)}
-              />
+          {/* Online Classes Card */}
+          <div className="rounded-2xl shadow-lg bg-gradient-to-br from-green-100 via-green-50 to-pink-50 p-8 flex flex-col items-center border border-green-200 hover:shadow-2xl transition">
+            <div className="mb-4">
+              <MdOutlineComputer className="text-green-400" size={48} />
             </div>
-          </Modal>
-
-          {/* Prompt for Class Type */}
-          <Modal isOpen={showClassTypePrompt} onClose={() => setShowClassTypePrompt(false)} title="Select Class Type">
-            <div className="p-6 text-center">
-              <div className="flex justify-center gap-4">
-                <button
-                  className="px-6 py-3 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700"
-                  onClick={() => handleClassTypeSelect('physical')}
-                >
-                  Physical
-                </button>
-                <button
-                  className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700"
-                  onClick={() => handleClassTypeSelect('online')}
-                >
-                  Online
-                </button>
-              </div>
+            <h2 className="text-xl font-semibold text-green-700 mb-2">Online Classes</h2>
+            <p className="text-green-500 mb-4 text-center">Manage your online Korean language classes</p>
+            <button
+              onClick={() => router.push('/dashboard/online/students')}
+              className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded-lg shadow transition"
+            >
+              View Online Classes
+            </button>
+          </div>
+          {/* Quick Capture Student Photo Card */}
+          <div className="rounded-2xl shadow-lg bg-gradient-to-br from-pink-100 via-pink-50 to-blue-50 p-8 flex flex-col items-center border border-pink-200 hover:shadow-2xl transition">
+            <div className="mb-4">
+              <MdPhotoCamera className="text-pink-400" size={48} />
             </div>
-          </Modal>
-
-          {/* Student Registration Form with Photo */}
-          <Modal isOpen={showStudentForm} onClose={() => setShowStudentForm(false)} title="Register Student">
-            <div className="p-4">
-              <StudentForm
-                onSuccess={handleStudentFormSuccess}
-                onCancel={() => setShowStudentForm(false)}
-                classType={selectedClassType || 'physical'}
-                photoBlob={capturedPhotoBlob}
-              />
-            </div>
-          </Modal>
+            <h2 className="text-xl font-semibold text-pink-700 mb-2">Quick Capture Student Photo</h2>
+            <p className="text-pink-500 mb-4 text-center">Capture and register a new student on the spot</p>
+            <button
+              onClick={handleCaptureClick}
+              className="bg-pink-500 hover:bg-pink-400 text-white font-bold py-2 px-4 rounded-lg shadow transition"
+            >
+              Capture Student Photo
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* Modal for Image Capture */}
+      <Modal isOpen={showCaptureModal} onClose={() => setShowCaptureModal(false)} title="Capture or Upload Student Photo">
+        <div className="p-4">
+          <ImageCapture
+            onImageCaptured={handleImageCaptured}
+            onError={() => setShowCaptureModal(false)}
+          />
+        </div>
+      </Modal>
+
+      {/* Prompt for Class Type */}
+      <Modal isOpen={showClassTypePrompt} onClose={() => setShowClassTypePrompt(false)} title="Select Class Type">
+        <div className="p-6 text-center">
+          <div className="flex justify-center gap-4">
+            <button
+              className="px-6 py-3 rounded-lg bg-indigo-600 text-white font-semibold hover:bg-indigo-700"
+              onClick={() => handleClassTypeSelect('physical')}
+            >
+              Physical
+            </button>
+            <button
+              className="px-6 py-3 rounded-lg bg-green-600 text-white font-semibold hover:bg-green-700"
+              onClick={() => handleClassTypeSelect('online')}
+            >
+              Online
+            </button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Student Registration Form with Photo */}
+      <Modal isOpen={showStudentForm} onClose={() => setShowStudentForm(false)} title="Register Student">
+        <div className="p-4">
+          <StudentForm
+            onSuccess={handleStudentFormSuccess}
+            onCancel={() => setShowStudentForm(false)}
+            classType={selectedClassType || 'physical'}
+            photoBlob={capturedPhotoBlob}
+          />
+        </div>
+      </Modal>
     </div>
   );
 } 

@@ -252,7 +252,7 @@ export default function DashboardLayout({
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 min-h-screen">
           <main className="flex-1">
             <div className="py-6">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
@@ -474,6 +474,9 @@ export default function DashboardLayout({
               </div>
             </div>
           </main>
+          <footer className="w-full text-center text-xs text-gray-500 py-3 border-t border-gray-800 bg-gray-900">
+            Software by : Dushan Cruez - TechMelvin - 0705565150
+          </footer>
         </div>
       </div>
     </div>

@@ -37,10 +37,9 @@ export default function LoginPage() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-transparent">
-      <div className="w-full max-w-md bg-gray-900 rounded-xl shadow-lg p-6 space-y-6 border border-gray-800">
+      <div className="relative w-full max-w-xs bg-gray-900 rounded-xl shadow-lg p-6 space-y-6 border border-gray-800 mx-auto">
         <div className="flex flex-col items-center">
-          <Link href="/" className="text-sm text-red-500 hover:underline mb-2">&larr; Back Home</Link>
-          <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-100">
+          <h2 className="mt-2 text-center text-2xl font-extrabold text-gray-100">
             Sign in to your account
           </h2>
         </div>
@@ -84,16 +83,17 @@ export default function LoginPage() {
               />
             </div>
           </div>
-          <div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="btn-primary w-full py-2 text-base font-semibold"
-            >
-              {loading ? 'Signing in...' : 'Sign in'}
-            </button>
-          </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn-primary w-full py-2 text-base font-semibold"
+          >
+            {loading ? 'Signing in...' : 'Sign in'}
+          </button>
         </form>
+        <footer className="pt-4 text-xs text-gray-500 text-center border-t border-gray-800">
+          Software by : Dushan Cruez - TechMelvin - 0705565150
+        </footer>
       </div>
     </div>
   );

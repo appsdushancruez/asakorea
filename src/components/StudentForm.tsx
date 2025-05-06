@@ -120,6 +120,8 @@ export default function StudentForm({ onSuccess, onCancel, classType, photoBlob,
   let previewImageUrl = '';
   if (localPhotoBlob) {
     previewImageUrl = URL.createObjectURL(localPhotoBlob);
+  } else if (photoBlob) {
+    previewImageUrl = URL.createObjectURL(photoBlob);
   } else if (student && student.photo_url) {
     previewImageUrl = student.photo_url;
   }
